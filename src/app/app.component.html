@@ -1,0 +1,20 @@
+<app-header *ngIf="isShowDisplay()"></app-header>
+
+<app-sidebar-left *ngIf="isShowDisplay()"></app-sidebar-left>
+
+<app-footer *ngIf="isShowDisplay()"></app-footer>
+
+<app-sidebar-right *ngIf="isShowDisplay()"></app-sidebar-right>
+
+<p-toast [style]="{marginTop: '50px'}"></p-toast>
+
+<p-confirmDialog header="Confirmação" icon="fa fa-question-circle" #confirmation>
+  <p-footer>
+    <button type="button" pButton icon="fa-check" label="Sim"
+      (click)="confirmation.accept()"></button>
+    <button type="button" pButton icon="fa-times" label="Não"
+      (click)="confirmation.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+.box-footer {
+    padding: 10px 0;
+}
+
+.wrapper{
+    height: 100vh !important;
+    background-color: #d2d6de !important;
+}
