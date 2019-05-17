@@ -27,6 +27,8 @@ import { SidebarRightComponent } from './core/sidebar-right/sidebar-right.compon
 import { InputContentComponent } from './shared/input-content/input-content.component';
 import { SearchUsersComponent } from './user/search-users/search-users.component';
 import { HttpErrorHandler } from './http-error.handler';
+import { OrderCustomerComponent } from './customers/order-customer/order-customer.component';
+import { CustomerService } from './customers/customer.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -42,7 +44,8 @@ export function tokenGetter() {
     SidebarLeftComponent,
     SidebarRightComponent,
     InputContentComponent,
-    SearchUsersComponent
+    SearchUsersComponent,
+    OrderCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ export function tokenGetter() {
   ],
   providers: [
     GroupService, 
-    UserService, 
+    UserService,
+    CustomerService,
     JwtHelperService,
     ConfirmationService,
     MessageService,
