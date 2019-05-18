@@ -29,6 +29,7 @@ import { SearchUsersComponent } from './user/search-users/search-users.component
 import { HttpErrorHandler } from './http-error.handler';
 import { OrderCustomerComponent } from './customers/order-customer/order-customer.component';
 import { CustomerService } from './customers/customer.service';
+import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -45,7 +46,8 @@ export function tokenGetter() {
     SidebarRightComponent,
     InputContentComponent,
     SearchUsersComponent,
-    OrderCustomerComponent
+    OrderCustomerComponent,
+    SearchCustomersComponent
   ],
   imports: [
     BrowserModule,
