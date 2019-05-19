@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -35,6 +35,19 @@ export class AuthService {
   removeAccessToken() {
     localStorage.removeItem('token');
     this.jwtPayload = null;
+  }
+
+  hasAnyPermission(roles: any[]): boolean {
+    for(const role of roles) {
+      if(this.hasPermission(role)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  hasPermission(role: any): boolean {
+    return this.jwtPayload && this.jwtPayload.authorities.includes(role);
   }
 
   tokenStorage(token: string) {

@@ -30,6 +30,7 @@ import { HttpErrorHandler } from './http-error.handler';
 import { OrderCustomerComponent } from './customers/order-customer/order-customer.component';
 import { CustomerService } from './customers/customer.service';
 import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
+import { AccessDeniedComponent } from './core/access-denied/access-denied.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,7 +48,8 @@ export function tokenGetter() {
     InputContentComponent,
     SearchUsersComponent,
     OrderCustomerComponent,
-    SearchCustomersComponent
+    SearchCustomersComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,
