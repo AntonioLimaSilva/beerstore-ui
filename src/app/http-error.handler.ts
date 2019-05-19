@@ -1,14 +1,12 @@
 import { Injectable, ErrorHandler, Injector } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthService } from './security/auth.service';
 import { Router } from '@angular/router';
    
 @Injectable({ providedIn: 'root' })
 export class HttpErrorHandler extends ErrorHandler {
 
   constructor(
-    private messageService: MessageService,
     private injector: Injector
   ) { 
     super()
@@ -18,14 +16,12 @@ export class HttpErrorHandler extends ErrorHandler {
     if(errorResponse instanceof HttpErrorResponse) {
       switch(errorResponse.status) {
         case 400:
-        if(errorResponse.error.error === 'invalid_grant') {
-          this.messageService.add({severity: 'error', detail: 'Usuário não cadastrado'});
+        if(errorResponse.error.errors[0].code === 'bad-credentials') {
+          this.injector.get(MessageService).add({severity: 'error', detail: 'Usuário não cadastrado'});
           break;
         }
-        console.log('Nao esta caindo aqui');
         break;
         case 401:
-          //this.router.navigate(['/login']);
           this.injector.get(Router).navigate(['/login'])
         console.log('Não autorizado');
         break;
