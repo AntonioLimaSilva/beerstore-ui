@@ -4,10 +4,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './security/login/login.component';
 import { OrderUserComponent } from './user/order-user/order-user.component';
 import { SearchUsersComponent } from './user/search-users/search-users.component';
-import { OrderCustomerComponent } from './customers/order-customer/order-customer.component';
-import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
+import { OrderCustomerComponent } from './customer/order-customer/order-customer.component';
+import { SearchCustomersComponent } from './customer/search-customers/search-customers.component';
 import { AuthGuard } from './security/auth.guard';
 import { AccessDeniedComponent } from './core/access-denied/access-denied.component';
+import { OrderBeerComponent } from './beer/order-beer/order-beer.component';
 
 export const ROUTES: Routes = [ 
     { path: '',
@@ -49,5 +50,11 @@ export const ROUTES: Routes = [
       component: SearchCustomersComponent,
       canActivate: [ AuthGuard ],
       data: { roles: ['ROLE_READ_CUSTOMER'] }
-    }  
+    },
+    {
+      path: 'beers/novo',
+      component: OrderBeerComponent,
+      canActivate: [ AuthGuard ],
+      data: { roles: ['ROLE_READ_BEER'] }
+    }
 ]

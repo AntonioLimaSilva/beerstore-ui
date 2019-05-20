@@ -8,7 +8,9 @@ import { RouterModule } from '@angular/router';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { ToastModule } from 'primeng/toast';
+
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 
@@ -27,10 +29,12 @@ import { SidebarRightComponent } from './core/sidebar-right/sidebar-right.compon
 import { InputContentComponent } from './shared/input-content/input-content.component';
 import { SearchUsersComponent } from './user/search-users/search-users.component';
 import { HttpErrorHandler } from './http-error.handler';
-import { OrderCustomerComponent } from './customers/order-customer/order-customer.component';
-import { CustomerService } from './customers/customer.service';
-import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
+import { OrderCustomerComponent } from './customer/order-customer/order-customer.component';
+import { CustomerService } from './customer/customer.service';
+import { SearchCustomersComponent } from './customer/search-customers/search-customers.component';
 import { AccessDeniedComponent } from './core/access-denied/access-denied.component';
+import { OrderBeerComponent } from './beer/order-beer/order-beer.component';
+import { RadioComponent } from './shared/radio/radio.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -49,7 +53,9 @@ export function tokenGetter() {
     SearchUsersComponent,
     OrderCustomerComponent,
     SearchCustomersComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    OrderBeerComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +63,9 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastModule,
     ConfirmDialogModule,
+    SelectButtonModule,
+    ToastModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

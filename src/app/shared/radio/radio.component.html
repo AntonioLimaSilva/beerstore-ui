@@ -1,0 +1,9 @@
+<div class="col-sm-12  form-group">             
+  <label for="type" class="control-label">{{label}}</label>
+  <div class="radio" *ngFor="let option of options">									
+    <label for="{{option.value}}">								
+      <input id="{{option.value}}" type="radio" (click)="setValue(option.value)" value="{{option.value}}" [checked]="option.value === 'PILSEN'" formControlName="type">
+      {{option.label}}											
+    </label>									
+  </div>  
+</div>  

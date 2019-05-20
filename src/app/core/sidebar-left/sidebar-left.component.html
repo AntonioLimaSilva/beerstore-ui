@@ -45,6 +45,7 @@
         <ul class="treeview-menu">
           <li routerLinkActive="active" *ngIf="auth.hasPermission('ROLE_ADD_USER')"><a [routerLink]="['/users/novo']"><i class="fa fa-circle-o"></i> Novo usuário</a></li>
           <li routerLinkActive="active" *ngIf="auth.hasPermission('ROLE_ADD_CUSTOMER')"><a [routerLink]="['/customers/novo']"><i class="fa fa-circle-o"></i> Novo Cliente</a></li>
+          <li routerLinkActive="active" *ngIf="auth.hasPermission('ROLE_ADD_BEER')"><a [routerLink]="['/beers/novo']"><i class="fa fa-circle-o"></i> Nova Cerveja</a></li>
         </ul>
       </li>
     </ul>
